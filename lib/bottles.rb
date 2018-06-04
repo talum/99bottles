@@ -8,30 +8,13 @@ class Bottles
   end
 
   def verse(number)
+    bottle_number = BottleNumber.new(number)
+    next_bottle_number = BottleNumber.new(bottle_number.subsequent)
+
     <<-VERSE
-#{count(number).to_s.capitalize} #{container(number)} of beer on the wall, #{count(number)} #{container(number)} of beer.
-#{action(number)}, #{subsequent(number)} #{container(subsequent(number))} of beer on the wall.
+#{bottle_number.count.to_s.capitalize} #{bottle_number.container} of beer on the wall, #{bottle_number.count} #{bottle_number.container} of beer.
+#{bottle_number.action}, #{bottle_number.subsequent} #{next_bottle_number.container} of beer on the wall.
 VERSE
-  end
-
-  def count(number)
-    BottleNumber.new(number).count
-  end
-
-  def pronoun(number)
-    BottleNumber.new(number).pronoun
-  end
-
-  def subsequent(number)
-    BottleNumber.new(number).subsequent
-  end
-
-  def container(number)
-    BottleNumber.new(number).container
-  end
-
-  def action(number)
-    BottleNumber.new(number).action
   end
 
 end
