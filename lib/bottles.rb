@@ -15,6 +15,29 @@ VERSE
   end
 
   def count(number)
+    BottleNumber.new.count(number)
+  end
+
+  def pronoun(number)
+    BottleNumber.new.pronoun(number)
+  end
+
+  def subsequent(number)
+    BottleNumber.new.subsequent(number)
+  end
+
+  def container(number)
+    BottleNumber.new.container(number)
+  end
+
+  def action(number)
+    BottleNumber.new.action(number)
+  end
+
+end
+
+class BottleNumber
+  def count(number)
     if number == 0
       "no more"
     else
@@ -52,5 +75,5 @@ VERSE
     else
       "Take #{pronoun(number)} down and pass it around, #{subsequent(number)} #{container(subsequent(number))} of beer on the wall."
     end
-  end
+   end
 end
